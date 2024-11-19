@@ -98,7 +98,18 @@ sequenceDiagram
     ProofGen->>L1: Submit Proof
 ```
 
+### Proof Verification
+```mermaid
+sequenceDiagram
+    participant ProofGen
+    participant Bridge
+    participant Verifier
+    participant L1State
 
+    ProofGen->>Bridge: Submit ZK Proof
+    Bridge->>Verifier: Verify Proof
+    Verifier->>L1State: Update State
+```
 
 
 
