@@ -139,4 +139,33 @@ sequenceDiagram
   }
   ```
 
+### Performance Optimizations
+- Recursive Proofs
+  ```solidity
+  interface RecursiveProver {
+    // Aggregate multiple proofs
+    function aggregateProofs(
+        Proof[] proofs
+    ): Promise<Proof>;
+    
+    // Verify recursive proof
+    function verifyRecursiveProof(
+        Proof aggregateProof
+    ): Promise<boolean>;
+  }
+  ```
+- Batch Processing
+  ```solidity
+  contract BatchProcessor {
+    // Process multiple transactions in single proof
+    function processBatch(
+        Transaction[] calldata txs,
+        bytes32 oldStateRoot
+    ) external returns (
+        bytes32 newStateRoot,
+        bytes32 zkProof
+    );
+  }
+  ```
+
 
