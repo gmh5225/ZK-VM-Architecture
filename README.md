@@ -128,5 +128,15 @@ sequenceDiagram
     ): Promise<boolean>;
   }
   ```
+- Circuit Validation
+  ```rust
+  impl CircuitValidator {
+    // Validate circuit constraints
+    fn validate_constraints(&self) -> Result<(), Error>;
+    
+    // Check witness satisfaction
+    fn check_witness(&self, witness: &Witness) -> bool;
+  }
+  ```
 
 
