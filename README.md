@@ -168,4 +168,42 @@ sequenceDiagram
   }
   ```
 
+### Implementation Details
+- Circuit Construction
+  ```rust
+    // R1CS constraint system
+    struct R1CSConstraints {
+        a: Vec<Vec<(usize, Fr)>>,
+        b: Vec<Vec<(usize, Fr)>>,
+        c: Vec<Vec<(usize, Fr)>>,
+    }
+    
+    // Witness generation
+    struct WitnessGenerator {
+        fn generate_witness(
+            &self,
+            public_inputs: &[Fr],
+            private_inputs: &[Fr]
+        ) -> Result<Witness, Error>;
+    }
+  ```
+- Proof Generation
+  ```rust
+  impl ProofGenerator {
+    // Generate SNARK proof
+    fn generate_snark(
+        &self,
+        circuit: &Circuit,
+        witness: &Witness
+    ) -> Result<Proof, Error>;
+    
+    // Verify SNARK proof
+    fn verify_snark(
+        &self,
+        proof: &Proof,
+        public_inputs: &[Fr]
+    ) -> bool;
+  }
+  ```
+
 
