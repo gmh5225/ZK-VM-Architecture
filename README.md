@@ -32,3 +32,43 @@ graph TB
 
     User[User] --> Sequencer
 ```
+
+## Core Components
+- zkVM Runtime Environment
+  ```solidity
+  interface IZKVMRuntime {
+    struct ExecutionContext {
+        uint256 blockNumber;
+        uint256 timestamp;
+        bytes32 stateRoot;
+        bytes32 zkProof;
+    }
+    
+    function executeTransaction(
+        bytes calldata txData,
+        ExecutionContext calldata context
+    ) external returns (bytes32 newStateRoot, bytes32 proof);
+  }
+  ```
+- Circuit Components
+  ```solidity
+    // Arithmetic Circuit Definition
+    struct ArithmeticCircuit {
+        // R1CS constraints
+        constraints: Vec<Constraint>,
+        // Witness variables
+        witness: Vec<Fr>,
+        // Public inputs
+        public_inputs: Vec<Fr>,
+    }
+    
+    // Proof Generator
+    struct ProofGenerator {
+        // Setup parameters
+        proving_key: ProvingKey,
+        // Verification key
+        verification_key: VerificationKey,
+    }
+  ```
+
+
