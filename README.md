@@ -70,5 +70,19 @@ graph TB
         verification_key: VerificationKey,
     }
   ```
+- State Management
+  ```solidity
+    interface IStateManager {
+        // Commit state update with ZK proof
+        function commitStateUpdate(
+            bytes32 oldStateRoot,
+            bytes32 newStateRoot,
+            bytes calldata zkProof
+        ) external returns (bool);
+    }
+  ```
+
+
+
 
 
