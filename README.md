@@ -82,6 +82,22 @@ graph TB
     }
   ```
 
+## Communication Flow
+### Transaction Processing
+```mermaid
+sequenceDiagram
+    participant User
+    participant Sequencer
+    participant zkVM
+    participant ProofGen
+    participant L1
+
+    User->>Sequencer: Submit Tx
+    Sequencer->>zkVM: Process Tx
+    zkVM->>ProofGen: Generate Proof
+    ProofGen->>L1: Submit Proof
+```
+
 
 
 
